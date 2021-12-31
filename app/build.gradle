@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk rootProject.targetSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.minSdkVersion
+        targetSdk rootProject.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        applicationId "com.quanticheart.default"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('../key')
+            storePassword '123456'
+            keyAlias 'key'
+            keyPassword '123456'
+        }
+        release {
+            storeFile file('../key')
+            storePassword '123456'
+            keyAlias 'key'
+            keyPassword '123456'
+        }
+    }
+
+    buildTypes {
+        buildTypes {
+            debug {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.debug
+            }
+            release {
+                minifyEnabled rootProject.releaseMinify
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation androidxLibs
+    testImplementation testImplementationLibs
+    androidTestImplementation testLibs
+
+    implementation project(":kotlinModule")
+    implementation project(":androidModule")
+}

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Default</string>
+    <string name="label_load">Load OK</string>
+</resources>
