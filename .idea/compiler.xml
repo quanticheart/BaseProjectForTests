@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="Default.androidModule" target="11" />
+      <module name="Default.app" target="11" />
+      <module name="Dokka.androidModule" target="11" />
+      <module name="Dokka.app" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
